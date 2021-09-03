@@ -20,8 +20,7 @@ export default class SearchableMovieReviewsContainer extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        let searchTerm = this.state.searchTerm
-        fetch(URL + searchTerm)
+        fetch(URL + this.state.searchTerm)
         .then(response => response.json())
         .then(data => {
             this.setState({
@@ -30,6 +29,15 @@ export default class SearchableMovieReviewsContainer extends Component {
         })
     }
 
+    componentDidMount = () => {
+        fetch(URL)
+        .then(response => response.json())
+        .then(data => {
+            this.setState({
+                reviews: data.results
+            })
+        })
+    }
     
     render() {
         return (
