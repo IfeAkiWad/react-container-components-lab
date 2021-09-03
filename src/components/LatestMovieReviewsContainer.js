@@ -24,6 +24,7 @@ export default class LatestMovieReviewsContainer extends Component {
     render() {
         return (
             <div className="latest-movie-reviews">
+                
                 <MovieReviews reviewList={this.state.reviews} />
             </div>
         )
